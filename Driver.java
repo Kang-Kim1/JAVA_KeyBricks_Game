@@ -2,7 +2,7 @@
 	Author : Kangmin Kim
 */
 	
-package code;
+package code.driver;
 
 import java.io.File;
 
@@ -14,12 +14,15 @@ import code.model.KeyBricksModel;
 
 public class Driver {
 	public static void main(String[] args) {
-		System.out.println(args[0]);
-		File file = new File(args[0]);
-		if (file.exists()) {
-			FileIO.CHECK_IF_FILE_EXSISTS = true;
+		File file;
+		if (args.length > 0) {
+			file = new File(args[0]);
+
+			if (file.exists()) {
+				FileIO.CHECK_IF_FILE_EXSISTS = true;
+			}
 		}
 		SwingUtilities.invokeLater(new KeyBricksGUI(new KeyBricksModel()));
 	}
-
 }
+
